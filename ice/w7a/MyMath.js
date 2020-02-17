@@ -1,7 +1,9 @@
 function Sum (a, b) {
-  return a + b
+  let result = undefined
+  if(typeof a == "number" && typeof b == "number") {
+    result = a + b
+  }
+  return result;
 }
-
-console.log(Sum(2,3));
 
 export { Sum };
