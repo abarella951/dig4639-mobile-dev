@@ -1,40 +1,64 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-const todoList = [
-  {
-      content: 'Task 1', priority: 2, completed: true
-  },
-  {
-      content: 'Task 2', priority: 1, completed: true
-  },
-  {
-      content: 'Task 3', priority: 3, completed: false
-  }
-]
+import todoList from './todoList.json'
+
+// Filter the list based on a checkbox
+// Add an input form to allow creating TODO items with content & priority
+// Have each item be able to remove itself using a function passed in from the parent
 
 function TodoItem(props) {
-  return <p>{props.content}</p>
+  return <p className='card' onClick={() => props.removeTask(props.id)}>{props.content}</p>
 }
 
-function App() {
-  const todoListFiltered = todoList.filter((value) => value.completed)
+class TodoList extends React.Component {
+constructor(props) {
+  super(props)
+  this.state = {
+    todoList,
+    hideCompletedItems:false
+  }
+  this.currentId = 4;
+}
+addTask(e) {
+  console.log(this.refs.taskContent)
+  let todoList = this.state.todoList
+  todoList.push(
+    {"id": this.currentId, "completed": true, "priority": 1, "content": "Task 1"} )
+  this.currentId++
+  this.setState({todoList})
+}
+removeTask(id) {
+  console.log(id)
+  let todoList = this.state.todoList
+  console.log(todoList)
+  todoList = todoList.filter((v) => v.id !== id)
+  console.log(todoList)
+  this.setState({todoList})
+}
+  render() {
+    return(
+    <>
+    <input type="text" ref="taskContent" />
+    <input type="button" value="Add Task" onClick={(e) => this.addTask(e)} />
+    <br />
+      <input ref="hideCompletedItemsCheckbox" id="hideCompletedItems" 
+      name="hideCompletedItems" value="hideCompletedItems" 
+      onChange={(e) => this.setState({ hideCompletedItems: e.target.checked })}/>
+      <label htmlFor="hideCompletedItems"> I have a bike</label><br></br>
+      { 
+      ((this.state.hideCompletedItems) ? todoList
+      .filter((v) => !v.completed) : this.state.todoList)
+      .map((v) => <TodoItem key={v.id} content={v.content} 
+      priority={v.priority}
+    completed={v.completed} />) }
+    </>)
+  }
+}
 
-  let todoArray = todoListFiltered.map(
-    (value) => <TodoItem content={value.content} />
+function App(props) {
+  return (
+    <TodoList />
   )
-//Filter?
-/*
-  const todoArray = [
-      <TodoItem content="Item 1" />,
-      <TodoItem content="Item 2" />,  
-      <TodoItem content="Item 3" />   
-    ]   */
-    return (
-      todoList.filter((v) => v.completed).map(
-        (v) => <TodoItem priority={v.priority} content={v.conent} completed ={v.completed}/>)
-
-    );
 }
 
 export default App;
