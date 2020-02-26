@@ -31,7 +31,7 @@ function App() {
       <TodoItem content="Item 3" />   
     ]   */
     return (
-      todoList.filter(v) => v.completed).map(
+      todoList.filter((v) => v.completed).map(
         (v) => <TodoItem priority={v.priority} content={v.conent} completed ={v.completed}/>)
 
     );
