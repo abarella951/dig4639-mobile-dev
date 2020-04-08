@@ -1,0 +1,87 @@
+[
+    {
+      "question": "What does Alyssa do when she's nervous?",
+      "possibleAnswers":
+      [
+         
+            {"text": "Twiddle her thumbs",
+            "correct": false
+            },
+            {"text":"Laugh",
+                "correct": true},
+            {"text": "Hide",
+            "correct": false
+            },
+            {"text": "Cry",
+                "correct": false
+             }
+      ]  
+    },{
+      "question": "What is her favorite color?",
+      "possibleAnswers":
+      [
+          
+            {"text": "Blue",
+            "correct": false
+            },
+            {"text": "Black",
+            "correct": false
+            },
+            {"text":"Yellow",
+                "correct": true},
+            {"text": "Green",
+                "correct": false
+             }
+      ]  
+    },{
+      "question": "What is her favorite hobby?",
+      "possibleAnswers":
+      [
+          {"text":"baking",
+            "correct": true},
+            {"text": "coding",
+            "correct": false
+            },
+            {"text": "skateboarding",
+            "correct": false
+            },
+            {"text": "reading",
+                "correct": false
+             }
+      ]  
+    },{
+      "question": "What was Alyssa's original Major?",
+      "possibleAnswers":
+      [
+          
+            {"text": "Web Design",
+            "correct": false
+            },
+            {"text": "Biomed",
+            "correct": false
+            },
+            {"text": "Nutrition",
+                "correct": false
+             },
+             {"text":"Graphic Design",
+                "correct": true}
+      ]  
+    },{
+      "question": "How many siblings does Alyssa have?",
+      "possibleAnswers":
+      [
+       
+            {"text": "3",
+            "correct": false
+            },
+            {"text": "2",
+            "correct": false
+            },
+            {"text":"1",
+                "correct": true},
+            {"text": "none",
+                "correct": false
+             }
+      ]  
+    }
+]
